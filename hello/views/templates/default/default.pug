@@ -1,0 +1,12 @@
+doctype html
+html
+    include header.pug
+    body(style="text-align:center")
+        if title
+            h1=title
+        else
+            h1 Hello Word!
+        hr
+        div!= content
+        hr
+        include footer.pug

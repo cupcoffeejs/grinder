@@ -1,0 +1,43 @@
+{
+  "name": "cupcoffee-grinder",
+  "version": "0.0.1",
+  "description": "Setup Wizard and configuration of CupCoffeeJs",
+  "bin": {
+    "grinder": "./cli.js"
+  },
+  "scripts": {
+    "start": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cupcoffeejs/grinder.git"
+  },
+  "keywords": [
+    "mvc",
+    "framework",
+    "controller",
+    "views",
+    "models",
+    "cli",
+    "cupcoffee",
+    "cupcoffeejs"
+  ],
+  "author": "Philippe Assis <assis@sophiware.com> (sophiware.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cupcoffeejs/grinder/issues"
+  },
+  "homepage": "https://github.com/cupcoffeejs/grinder#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "inquirer": "^1.0.3",
+    "mkdirp": "^0.5.1",
+    "ncp": "^2.0.0",
+    "node-flags": "^0.1.9",
+    "optimist": "^0.6.1",
+    "pug": "^2.0.0-beta3",
+    "sequelize": "^3.23.3",
+    "utils-merge": "^1.0.0",
+    "validator": "^5.4.0"
+  }
+}
