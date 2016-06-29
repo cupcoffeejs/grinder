@@ -9,5 +9,5 @@ Setup Wizard and configuration of CupCoffeeJs
 
 ####Look this
 
-![Alt Text](https://github.com/{user}/{repo}/raw/{branch}/grinder.png)
+![Alt Text](https://raw.githubusercontent.com/cupcoffeejs/grinder/master/grinder.png)
 
