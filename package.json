@@ -1,6 +1,6 @@
 {
   "name": "cupcoffee-grinder",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Setup Wizard and configuration of CupCoffeeJs",
   "bin": {
     "grinder": "./cli.js"
