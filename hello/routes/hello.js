@@ -1,6 +1,6 @@
 "use strict";
 var router = require('express').Router(),
-    controller = require('cupcoffee-mvc').controller
+    controller = require('cupcoffee').controller
 
 router.get('/helloword', (request, response) => {
     controller.http(request, response).invoke('hello', 'index')
