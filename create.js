@@ -165,7 +165,7 @@ module.exports = () => {
     this.exec = (pack, cache) => {
         console.log('Creating index.js...');
 
-        fs.writeFile('./index.js', "require('cupcoffee')().start();", (err) => {
+        fs.writeFile('./index.js', "require('cupcoffee').start();", (err) => {
             if (err) throw err;
             else {
                 console.log('index.js ......................... OK!');
