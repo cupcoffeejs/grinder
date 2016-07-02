@@ -179,7 +179,7 @@ module.exports = () => {
 
                         console.log('Downloading CupCoffee MVC modules...');
 
-                        var npm = 'npm i --save cupcoffee-mvc';
+                        var npm = 'npm install --save cupcoffee';
 
                         if (cache.app[cache.app.env].database) {
                             if (cache.app[cache.app.env].database.config.dialect == 'mysql') {
