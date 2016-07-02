@@ -7,7 +7,7 @@ module.exports = ({view, model}) => {
      * @description Disable/enable scaffold
      * @type {boolean}
      */
-    this.scaffold = false;
+    // this.scaffold = false;
 
     /**
      *

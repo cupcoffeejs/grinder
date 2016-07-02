@@ -2,7 +2,7 @@
 var router = require('express').Router(),
     controller = require('cupcoffee').controller
 
-router.get('/helloword', (request, response) => {
+router.get('/', (request, response) => {
     controller.http(request, response).invoke('hello', 'index')
 });
 
