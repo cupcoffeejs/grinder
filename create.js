@@ -116,7 +116,7 @@ module.exports = () => {
             cache.app[cache.app.env] = {};
             cache.app[cache.app.env].port = answers.port;
             if (answers.database) {
-                cache.app[cache.app.env].hostname = answers.hostname;
+                cache.app[cache.app.env].host = answers.hostname;
                 cache.app[cache.app.env].database = {};
                 cache.app[cache.app.env].database.config = {};
                 cache.app[cache.app.env].database.type = answers.database;
@@ -152,7 +152,7 @@ module.exports = () => {
                         message: 'What is the database password?'
                     }
                 ]).then((answers) => {
-                    cache.app[cache.app.env].database.config.host = answers.host;
+                    cache.app[cache.app.env].database.host = answers.host;
                     cache.app[cache.app.env].database.name = answers.name;
                     cache.app[cache.app.env].database.username = answers.username;
                     cache.app[cache.app.env].database.password = answers.password;

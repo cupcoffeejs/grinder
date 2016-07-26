@@ -47,7 +47,7 @@ module.exports = () => {
                 name: 'hostname',
                 message: 'What is the hostname of your application?',
                 default: () => {
-                    return cacheEnv.hostname ? cacheEnv.hostname : 'localhost';
+                    return cacheEnv.host ? cacheEnv.host : 'localhost';
                 }
             },
             {
