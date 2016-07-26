@@ -85,6 +85,10 @@ module.exports = () => {
                 message: 'What type of database you want to use',
                 choices: [
                     {
+                        name: 'MongoDB',
+                        value: 'mongodb'
+                    },
+                    {
                         name: 'MySQL',
                         value: 'mysql'
                     },
