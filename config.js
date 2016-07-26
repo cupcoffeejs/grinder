@@ -85,9 +85,13 @@ module.exports = () => {
             },
             {
                 type: 'list',
-                name: 'database',
+                name: 'type',
                 message: 'What type of database you want to use',
                 choices: [
+                    {
+                        name: 'MongoDB',
+                        value: 'mongodb'
+                    },
                     {
                         name: 'MySQL',
                         value: 'mysql'
@@ -110,8 +114,8 @@ module.exports = () => {
                     }
                 ],
                 default: () => {
-                    if (cacheEnv.database && cacheEnv.database.config && cacheEnv.database.config.dialect) {
-                        return cacheEnv.database.config.dialect
+                    if (cacheEnv.database && cacheEnv.database.type) {
+                        return cacheEnv.database.type
                     }
 
                     return false;
@@ -124,8 +128,7 @@ module.exports = () => {
             cache.app[cache.app.env].port = answers.port;
             if (answers.database) {
                 cache.app[cache.app.env].database = {};
-                cache.app[cache.app.env].database.config = {};
-                cache.app[cache.app.env].database.config.dialect = answers.database;
+                cache.app[cache.app.env].database.type = answers.type;
 
                 inquirer.prompt([
                     {
@@ -133,8 +136,8 @@ module.exports = () => {
                         name: 'host',
                         message: 'What is the database host?',
                         default: () => {
-                            if (cacheEnv.database && cacheEnv.database.config && cacheEnv.database.config.host) {
-                                return cacheEnv.database.config.host
+                            if (cacheEnv.database && cacheEnv.database.host) {
+                                return cacheEnv.database.host
                             }
 
                             return 'localhost';
@@ -142,14 +145,14 @@ module.exports = () => {
                     },
                     {
                         type: 'input',
-                        name: 'schema',
+                        name: 'name',
                         message: 'What is the database name you want to use?',
                         validate: function (value) {
                             return value ? true : 'You must define a name of a database';
                         },
                         default: () => {
-                            if (cacheEnv.database && cacheEnv.database.schema && cacheEnv.database.config.schema) {
-                                return cacheEnv.database.config.schema
+                            if (cacheEnv.database && cacheEnv.database.name && cacheEnv.database.config.name) {
+                                return cacheEnv.database.config.name
                             }
 
                         }
@@ -176,8 +179,8 @@ module.exports = () => {
                     if (!cache.app) {
                         cache.app = {};
                     }
-                    cache.app[cache.app.env].database.config.host = answers.host;
-                    cache.app[cache.app.env].database.schema = answers.schema;
+                    cache.app[cache.app.env].database.host = answers.host;
+                    cache.app[cache.app.env].database.name = answers.name;
                     cache.app[cache.app.env].database.username = answers.username;
 
                     if (answers.password) {

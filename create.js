@@ -115,7 +115,7 @@ module.exports = () => {
                 cache.app[cache.app.env].hostname = answers.hostname;
                 cache.app[cache.app.env].database = {};
                 cache.app[cache.app.env].database.config = {};
-                cache.app[cache.app.env].database.config.dialect = answers.database;
+                cache.app[cache.app.env].database.type = answers.database;
 
                 inquirer.prompt([
                     {
@@ -128,7 +128,7 @@ module.exports = () => {
                     },
                     {
                         type: 'input',
-                        name: 'schema',
+                        name: 'name',
                         message: 'What is the database name you want to use?',
                         validate: function (value) {
                             return value ? true : 'You must define a name of a database';
@@ -149,7 +149,7 @@ module.exports = () => {
                     }
                 ]).then((answers) => {
                     cache.app[cache.app.env].database.config.host = answers.host;
-                    cache.app[cache.app.env].database.schema = answers.schema;
+                    cache.app[cache.app.env].database.name = answers.name;
                     cache.app[cache.app.env].database.username = answers.username;
                     cache.app[cache.app.env].database.password = answers.password;
 
@@ -181,18 +181,24 @@ module.exports = () => {
 
                         var npm = 'npm install --save cupcoffee';
 
+                        /**
+                        *  Install modules database
+                        * */
                         if (cache.app[cache.app.env].database) {
-                            if (cache.app[cache.app.env].database.config.dialect == 'mysql') {
-                                npm += ' mysql';
+                            if (cache.app[cache.app.env].database.type == 'mongodb') {
+                                npm += ' mongoose';
                             }
-                            else if (cache.app[cache.app.env].database.config.dialect == 'sqlite') {
-                                npm += ' sqlite3';
+                            else if (cache.app[cache.app.env].database.type == 'mysql') {
+                                npm += ' mysql sequelize';
                             }
-                            else if (cache.app[cache.app.env].database.config.dialect == 'mssql') {
-                                npm += ' tedious';
+                            else if (cache.app[cache.app.env].database.type == 'sqlite') {
+                                npm += ' sqlite3 sequelize';
                             }
-                            else if (cache.app[cache.app.env].database.config.dialect == 'postgres') {
-                                npm += ' pg pg-hstore';
+                            else if (cache.app[cache.app.env].database.type == 'mssql') {
+                                npm += ' tedious sequelize';
+                            }
+                            else if (cache.app[cache.app.env].database.type == 'postgres') {
+                                npm += ' pg pg-hstore sequelize';
                             }
                         }
 
